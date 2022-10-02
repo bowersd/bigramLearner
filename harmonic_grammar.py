@@ -15,6 +15,6 @@ def compete(v_vector, weights):
         elif scored < floor or not floor: 
             h = [i]
             floor = scored
-    if len(h) > 1: print(tied winners, selecting one at random)
+    if len(h) > 1: print("tied winners, selecting one at random")
     return h[random.randrange(len(h))]
 
