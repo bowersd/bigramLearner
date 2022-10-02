@@ -1,3 +1,4 @@
+import harmonic_grammar as hg
 
 def erc(v_winner, v_loser):
     h = []
@@ -7,5 +8,9 @@ def erc(v_winner, v_loser):
         else: h.append(-0) #e
     return h
 
-def error_detection():
-    pass
+def error_detection(v_vector, weights, obs_winner):
+    pred_winner = hg.select_winner(v_vector, weights)
+    return pred_winner != obs_winner
+
+
+    
