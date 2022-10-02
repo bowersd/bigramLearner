@@ -26,3 +26,5 @@ def eval_std(constraint, form, n):
         if form[i:i+n] == constraint: return 0
         i += 1
     return 1
+
+#could also penalize everything and remove n-grams as observed
