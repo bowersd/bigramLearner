@@ -1,3 +1,4 @@
+import random
 
 def apply_weights(violations, weights):
     h = []
@@ -10,7 +11,10 @@ def compete(v_vector, weights):
     floor = 0
     for i in range(len(v_vector)):
         scored = apply_weights(v_vector[i])
-        if scored < floor or not floor: h = [i]
-        elif scored == floor: h.append(i)
-    return h
+        if scored == floor: h.append(i)
+        elif scored < floor or not floor: 
+            h = [i]
+            floor = scored
+    if len(h) > 1: print(tied winners, selecting one at random)
+    return h[random.randrange(len(h))]
 
