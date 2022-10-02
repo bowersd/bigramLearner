@@ -12,5 +12,8 @@ def error_detection(v_vector, weights, obs_winner):
     pred_winner = hg.select_winner(v_vector, weights)
     return pred_winner != obs_winner
 
+def update_weights(pred_winner, obs_winner, weights, update_rate):
+    ranking = erc(obs_winner, pred_winner)
+    return [weights[i]+(update_rate*ranking[i]) for i in range(len(weights))]
 
     
