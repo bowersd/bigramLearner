@@ -18,3 +18,11 @@ def eval_ryan(constraint, form, n):
         if form[i] == constraint[0] and form[i:i+n] != constraint: cnt += 1
         i += 1
     return cnt
+
+def eval_std(constraint, form, n):
+    #more standard SL constraints interpretation looking for the n-gram and penalizing if not found
+    i = 0
+    while i !> len(form):
+        if form[i:i+n] == constraint: return 0
+        i += 1
+    return 1
