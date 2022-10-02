@@ -5,11 +5,11 @@ def apply_weights(violations, weights):
         h.append(violations[i]*weights[i])
     return sum(h)
 
-def winner(weighted_summed_violations):
+def best_score(weighted_summed_violations):
     return max(weighted_summed_violations)
 
 def compete(v_vector, weights):
     h = []
     for v in v_vector:
         h.append(apply_weights(v, weights))
-    return winner(h)
+    return best_score(h)
