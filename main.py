@@ -5,6 +5,12 @@ import babbler as b
 import constraints as con
 import combination_counts as cc
 
+def retrieve_obs_winner(obs, candidates):
+    i = 0
+    while i < len(candidates):
+        if obs == candidates[i]: return i
+        i += 1
+
 if __name__ == "__main__":
     cuml_dist = b.cnts_to_cuml_dist(*b.laplace(*[x[1] for x in cc.combination_cnt]))
     i = 0
@@ -24,6 +30,8 @@ if __name__ == "__main__":
             for constraint in constraints:
                 g.append(con.eval_std(constraint, cand))
             h.append((cand, g))
-        winner = hg.select_winner([x[1] for x in h], hg.perturb_weights(weights))
+        pred_winner = hg.select_winner([x[1] for x in h], hg.perturb_weights(weights))
+        obs_winner = retrieve_obs_winner(cc.combination_cnt[word][0], [x[0] for x in h])
+        weights = wl.update_weights(wl.erc(h[obs_winner][1], h[pred_winner][1]), weights, 0.1)
         
 
