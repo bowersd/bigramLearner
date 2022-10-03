@@ -3,9 +3,15 @@ import random
 #could so-called secondary composition cases in native vocabulary (McCone 1997:90-1) be burps from a bigrammatic grammar? 
 #should make separate lists of native/loan secondary orderings
 
-#this holds counts of raw appearance of the prefix combinations (including all alternative orderings. specific counts of alternative orderings should be collated in different lists)
+#this holds counts of raw appearance of the prefix combinations (including all alternative orderings. specific counts of alternative orderings should be collated in different lists) -> mind inversion to avoid word initial position
 #if populated by script, should be lists, not tuples
 #cum1, ad1, ro1 are 'lexical', cum2, ad2, ro2 are augments
+#built by directing itertools output to file:
+#i = 1
+#while i <= 5:
+#   for c in itertools.combinations(list_of_prefix_slots, i):
+#       for p in itertools.product(*c): print(p) #actually performed with file_out.write(str(p)+'\n'), but you get the picture
+#   i += 1
 combination_cnt = (
     (('to',), None),
     (('for',), None),
