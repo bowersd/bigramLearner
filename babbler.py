@@ -15,6 +15,6 @@ def cnts_to_cuml_dist(*cnts):
 def rand_babble(cuml_dist):
     i = 0
     target = random.random()
-    while cuml_dist[i] > target:
+    while cuml_dist[i] < target:
         i += 1
     return i
