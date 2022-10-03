@@ -16,6 +16,7 @@ if __name__ == "__main__":
         #need to manage creation of inverted augments
         #may need to manage extraction of alternate orders -> not really. assuming hypothetical categorical system
         constraints, weights = con.update_constraints(constraints, weights, cc.combination_cnt[word][0], 2)
+        #may need to tack on BOS and EOS
         gen = it.permutations(cc.combination_cnt[word][0], len(cc.combinations_cnt[word][0]))
         
 
