@@ -15,16 +15,18 @@ def eval_ryan(constraint, form):
     #this is generalized for XY... that assigns violations iff X is not immediately followed by Y...
     cnt = 0
     i = 0
+    n = len(constraint)
     while i <= len(form):
-        if form[i] == constraint[0] and form[i:i+len(constraint)] != constraint: cnt += 1
+        if form[i] == constraint[0] and form[i:i+n] != constraint: cnt += 1
         i += 1
     return cnt
 
 def eval_std(constraint, form):
     #more standard SL constraints interpretation looking for the n-gram and penalizing if not found
     i = 0
+    n = len(constraint)
     while i <= len(form):
-        if form[i:i+len(constraint)] == constraint: return 0
+        if form[i:i+n] == constraint: return 0
         i += 1
     return 1
 
