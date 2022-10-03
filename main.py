@@ -1,4 +1,4 @@
-import itertools
+import itertools as it
 import harmonic_grammar as hg
 import weight_learner as wl
 import babbler as b
@@ -16,3 +16,4 @@ if __name__ == "__main__":
         #need to manage creation of inverted augments
         #may need to manage extraction of alternate orders
         constraints, weights = con.update_constraints(constraints, weights, cc.combination_cnt[word][0], 2)
+
