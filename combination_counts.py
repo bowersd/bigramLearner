@@ -3,8 +3,9 @@ import random
 #could so-called secondary composition cases in native vocabulary (McCone 1997:90-1) be burps from a bigrammatic grammar? 
 #should make separate lists of native/loan secondary orderings
 
-#this counts raw appearance of the prefix combinations (including all alternative orderings. specific counts of alternative orderings should be collated in different lists)
+#this holds counts of raw appearance of the prefix combinations (including all alternative orderings. specific counts of alternative orderings should be collated in different lists)
 #if populated by script, should be lists, not tuples
+#cum1, ad1, ro1 are 'lexical', cum2, ad2, ro2 are augments
 combination_cnt = (
     (('to',), None),
     (('for',), None),
