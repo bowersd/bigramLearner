@@ -1,14 +1,18 @@
-import harmonic_grammar
-import weight_learner
-import babbler
-import constraints
 import itertools
+import harmonic_grammar as hg
+import weight_learner as wl
+import babbler as b
+import constraints as con
+import combination_counts as cc
 
 if __name__ == "__main__":
-    cuml_dist = babbler.cnts_to_cuml_dist(*babbler.laplace(*[x[1] for x in combination_counts.combination_cnt]))
+    cuml_dist = b.cnts_to_cuml_dist(*b.laplace(*[x[1] for x in cc.combination_cnt]))
     i = 0
+    constraints = []
+    weights = []
     while i < 1000:
         i += 1
-        word = babbler.rand_babble(cuml_dist)
+        word = b.rand_babble(cuml_dist)
         #need to manage creation of inverted augments
         #may need to manage extraction of alternate orders
+        constraints, weights = con.update_constraints(constraints, weights, cc.combination_cnt[word][0], 2)
