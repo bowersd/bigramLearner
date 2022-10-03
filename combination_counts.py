@@ -12,6 +12,7 @@ import random
 #   for c in itertools.combinations(list_of_prefix_slots, i):
 #       for p in itertools.product(*c): print(p) #actually performed with file_out.write(str(p)+'\n'), but you get the picture
 #   i += 1
+#-> probably need to add in the particles too ...
 combination_cnt = (
     [('to',), None],
     [('for',), None],
