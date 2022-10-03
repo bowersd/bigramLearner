@@ -18,5 +18,12 @@ if __name__ == "__main__":
         constraints, weights = con.update_constraints(constraints, weights, cc.combination_cnt[word][0], 2)
         #may need to tack on BOS and EOS
         gen = it.permutations(cc.combination_cnt[word][0], len(cc.combinations_cnt[word][0]))
+        h = []
+        for cand in gen:
+            g = []
+            for constraint in constraints:
+                g.append(con.eval_std(constraint, cand))
+            h.append((cand, g))
+        winner = hg.select_winner([x[1] for x in h], hg.perturb_weights(weights))
         
 
