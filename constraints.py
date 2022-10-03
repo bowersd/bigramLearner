@@ -1,3 +1,4 @@
+#perhaps switch constraints from negative bans to positive licenses (so that *#ro (or longer??) is present ... is tagalog compatible with this?
 def update_constraints(constraints, weights, nu_form, n):
     i = 0
     nu_constraints = [x for x in constraints]
