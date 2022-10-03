@@ -14,6 +14,8 @@ if __name__ == "__main__":
         i += 1
         word = b.rand_babble(cuml_dist)
         #need to manage creation of inverted augments
-        #may need to manage extraction of alternate orders
+        #may need to manage extraction of alternate orders -> not really. assuming hypothetical categorical system
         constraints, weights = con.update_constraints(constraints, weights, cc.combination_cnt[word][0], 2)
+        gen = it.permutations(cc.combination_cnt[word][0], len(cc.combinations_cnt[word][0]))
+        
 
