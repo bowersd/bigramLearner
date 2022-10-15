@@ -31,6 +31,8 @@ def eval_std(constraint, form):
     return 1
 
 #could also penalize everything and remove n-grams as observed
+#better: penalize everything and just let the observed cases be low-weighted. This option wasn't done in Ryan's paper, but I'm not sure why.
+#next function removes observed n-grams
 
 def subtract_constraints(constraints, weights, nu_form, n):
     j = len(constraints)
@@ -41,7 +43,7 @@ def subtract_constraints(constraints, weights, nu_form, n):
         while i+n <= len(nu_form):
             if nu_form[i:i+n] == nu_constraints[j]: 
                 nu_constraints = nu_constraints[:j]+nu_constraints[j+1:]
-                nu_weights = nu_weights[:j]+weights[j+1:]
+                nu_weights = nu_weights[:j]+nu+weights[j+1:]
             i += 1
         j -= 1
     return (nu_constraints, nu_weights)
