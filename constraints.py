@@ -31,3 +31,17 @@ def eval_std(constraint, form):
     return 1
 
 #could also penalize everything and remove n-grams as observed
+
+def subtract_constraints(constraints, weights, nu_form, n):
+    j = len(constraints)
+    i = 0
+    nu_constraints = [x for x in constraints]
+    nu_weights = [x for x in weights]
+    while j >= 0:
+        while i+n <= len(nu_form):
+            if nu_form[i:i+n] == nu_constraints[j]: 
+                nu_constraints = nu_constraints[:j]+nu_constraints[j+1:]
+                nu_weights = nu_weights[:j]+weights[j+1:]
+            i += 1
+        j -= 1
+    return (nu_constraints, nu_weights)
