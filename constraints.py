@@ -8,7 +8,7 @@ def update_constraints(constraints, weights, nu_form, n):
             nu_constraints.append(nu_form[i:i+n])
             nu_weights.append(0)
         i += 1
-    return (constraints, weights)
+    return (nu_constraints, nu_weights)
 
 def eval_ryan(constraint, form):
     #ryan uses bigram constraints XY that assign violations iff X is not immediately followed by Y
