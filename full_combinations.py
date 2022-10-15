@@ -1,7 +1,7 @@
 import itertools
 
 list_of_prefix_slots = [
-        ["ma"],
+        ["ma", "RED"],
         ["Pi", "mag"],
         ["ka", "si"],
         ["pag"],
